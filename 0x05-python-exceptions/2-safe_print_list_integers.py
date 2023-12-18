@@ -7,7 +7,6 @@ def safe_print_list_integers(my_list=[], x=0):
 
     while printed_count < x and index < x:
 
-        print()
         try:
             element = my_list[index]
             if isinstance(element, int):
