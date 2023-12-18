@@ -14,10 +14,7 @@ def safe_print_list_integers(my_list=[], x=0):
                 printed_count += 1
         except (IndexError, TypeError):
             pass
-        try:
-            index += 1
-        except IndexError:
-            break
+        index += 1
 
     print()
     return printed_count
