@@ -9,6 +9,6 @@ my_list.append(3)
 my_list.append(5)
 
 
-print("Original list:",my_list)
+print(my_list)
 my_list.print_sorted()
-print("After print_sorted:",my_list)
+print(my_list)
