@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-class Mylist(list):
+class MyList(list):
     """
     custom class that inherits from th build in list class
 
