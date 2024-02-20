@@ -2,7 +2,7 @@
 """ Class that inherits from class int"""
 
 
-class Myint(int):
+class MyInt(int):
     """ Class that inherits from class int"""
 
     def __eq__(self, other):
