@@ -1,18 +1,17 @@
 #!/usr/bin/python3
 """module import for a child of BaseGeometry class"""
 
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
+Rectangle = __import__('9-rectangle').Rectangle
 
-
-class Square(BaseGeometry):
+class Square(Rectangle):
     """a child of BaseGeometry class"""
 
     def __init__(self, size):
         """instantiation method"""
 
         self.integer_validator("size", size)
-        super().__init__(self.__size, self.__size)
         self.__size = size
+        super().__init__(self.__size, self.__size)
 
     def area(self):
         """returns a string with the area"""
