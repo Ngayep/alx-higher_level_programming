@@ -5,12 +5,12 @@ BaseGeometry = __import__('7-base_geometry').BaseGeometry
 class Square(BaseGeometry):
     """a child of BaseGeometry class"""
 
-    def __init__(self, width, height):
+    def __init__(self, size):
         """instantiation method"""
 
         self.integer_validator("size", size)
         self.__size = size
-        super().__init__(self.__size, self.__size)
+        super().__init__(self.__size)
 
     def area():
         """area of the square"""
