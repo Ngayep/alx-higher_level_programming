@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+""" function that returns True or false if obj
+    is an instance of a_class"""
+
+
 def inherits_from(obj, a_class):
     """ function that returns True or false if obj
     is an instance of a_class
