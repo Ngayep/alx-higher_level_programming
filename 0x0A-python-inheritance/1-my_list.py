@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 class Mylist(list):
     """
     custom class that inherits from th build in list class
