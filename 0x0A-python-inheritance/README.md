@@ -15,3 +15,9 @@ Description of files in dir
 6-base_geometry.py - BaseGeometry class with public instance method to raise exception
 
 7-base_geometry.py - BaseGeometry class with public instance methods
+
+8-rectangle.py -  a class Rectangle that inherits from BaseGeometry (7-base_geometry.py)
+
+9-rectangle.py - a class Rectangle that inherits from BaseGeometry (7-base_geometry.py). (task based on 8-rectangle.py)
+
+10-square.py - a  class Square that inherits from Rectangle (9-rectangle.py):
