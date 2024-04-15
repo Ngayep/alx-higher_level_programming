@@ -12,4 +12,6 @@ Description of files in dir
 
 5-base_geometry.py - an empty class BaseGeometry
 
-6-base_geometry.py - BaseGeometry class with pubkic instance method to raise exception
+6-base_geometry.py - BaseGeometry class with public instance method to raise exception
+
+7-base_geometry.py - BaseGeometry class with public instance methods
