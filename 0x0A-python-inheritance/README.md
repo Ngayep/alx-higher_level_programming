@@ -10,4 +10,6 @@ Description of files in dir
 
 4-inherits_from.py - function that returns True if the object is an instance of a class that inherited (directly or indirectly) from the specified class ; otherwise False.
 
+5-base_geometry.py - an empty class BaseGeometry
 
+6-base_geometry.py - BaseGeometry class with pubkic instance method to raise exception

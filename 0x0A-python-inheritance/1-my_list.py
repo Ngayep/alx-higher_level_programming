@@ -11,5 +11,6 @@ class MyList(list):
         super().__init__()
 
     def print_sorted(self):
+        sorted_list = sorted(self)
         """prints the sorted list"""
-        print(sorted(self))
+        print(sorted_list)
