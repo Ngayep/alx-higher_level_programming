@@ -85,3 +85,15 @@ class Rectangle(Base):
                                                            self.x, self.y,
                                                            self.width,
                                                            self.height)
+
+        def update(self, *args):
+            """Updates attributes based on no-keyword arguments.
+
+            Args:
+                *args: Arguments representing id, width, height, x and y
+                in that order"""
+
+            if len(args) != 5:
+                raise ValueError("Expected 5 arguments for update)
+
+            self.id, self.width, self.height, self.x, self.y = args
