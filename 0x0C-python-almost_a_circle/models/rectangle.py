@@ -111,5 +111,14 @@ class Rectangle(Base):
                     setattr(self, key, value)
                 else:
                     raise AttributeError(f"Invalid attribute name: {key}")
+                self.id, self.width, self.height, self.x, self.y = args
 
-            self.id, self.width, self.height, self.x, self.y = args
+         def to_dictionary(self):
+             """Return the dictionary representation of a Rectangle."""
+             return {
+                     "id": self.id,
+                     "width": self.width,
+                     "height": self.height,
+                     "x": self.x,
+                     "y": self.y
+                     }
