@@ -86,14 +86,30 @@ class Rectangle(Base):
                                                            self.width,
                                                            self.height)
 
-        def update(self, *args):
-            """Updates attributes based on no-keyword arguments.
+        def update(self, *args, **kwargs):
+            """Updates the rectangle's attributes
 
             Args:
-                *args: Arguments representing id, width, height, x and y
-                in that order"""
+                *args: Arguments representing
+                       id, width, height, x and y
+                       in that order
+                **kwargs (dict): New key/value pairs of attributes
+            """
 
-            if len(args) != 5:
-                raise ValueError("Expected 5 arguments for update)
+            attribute_order = ["id", "width", "height", "x", "y"]
+            for i, arg in enumerate(args):
+                if i < len(attribute_order):
+                    if arg is not None:
+                        setattr(self, attribute_order[i], arg)
+                    else:
+                        raise ValueError(f"Too many positional arguments")
+
+            for key, value in kwargs.items():
+                if key == "id" and value is None:
+                    self.__init__(self.width, self.height, self.x, self.y)
+                elif hasattr(self, key):
+                    setattr(self, key, value)
+                else:
+                    raise AttributeError(f"Invalid attribute name: {key}")
 
             self.id, self.width, self.height, self.x, self.y = args
