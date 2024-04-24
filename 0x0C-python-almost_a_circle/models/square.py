@@ -24,6 +24,7 @@ class Square(Rectangle):
 
     @size.setter
     def size(self, value):
+        """sets the value of the width and height"""
         self.width = value
         self.height = value
 
