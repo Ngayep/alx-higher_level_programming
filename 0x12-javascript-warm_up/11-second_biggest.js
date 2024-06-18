@@ -3,7 +3,7 @@
 if (process.argv.lenght <= 3) {
   console.log(0);
 } else {
-  const arr = process.argv.slice(2).map(Number);
-  const second = arr.sort(function (a, b) { return b - a; })[1];
+  const arr = process.argv.map(Number);
+  const second = arr.sort(function (a, b) { return a - b; })[process.argv.length - 2];
   console.log(second);
 }
