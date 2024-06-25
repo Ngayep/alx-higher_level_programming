@@ -3,32 +3,27 @@
 Prints the first State object from the database
 hbtn_0e_6_usa where the name contains 'a'.
 """
-import sys
+import sqlalchemy
 from model_state import Base, State
-from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from sys import argv, exit
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
-        print("Usage: {} <username> <password> <database>".format(sys.argv[0]))
-        sys.exit(1)
+ 
+    if len(argv) != 4:
+        print("Usage: ./7.py <username> <password> <database>")
+        exit(1)
 
-    # Create the database connection
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
-                           .format(sys.argv[1], sys.argv[2], sys.argv[3]))
+    usr, passwd, db = argv[1], argv[2], argv[3]
 
-    # Create all tables defined in the models
-    Base.metadata.create_all(engine)
-
-    # Create a session to interact with the database
+    eng = "mysql://" + usr + ":" + passwd + "@localhost:3306/" + db
+    try:
+        engine = sqlalchemy.create_engine(eng)
+    except Exception as err:
+        print(err)
+        exit(1)
     Session = sessionmaker(bind=engine)
     session = Session()
-
-    # Query for the first State object where name contains 'a'
-    state = session.query(State).filter(State.name.like('%a%')).first()
-
-    # Check if a state was found
-    if state is not None:
-        print("{}: {}".format(state.id, state.name))
-    else:
-        print("Nothing")
+    for rows in session.query(State).filter(State.name.like('%a%')):
+        print("{:d}: {:s}".format(rows.id, rows.name))
+    session.close()
