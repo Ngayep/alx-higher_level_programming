@@ -4,12 +4,12 @@ Prints the first State object from the database
 hbtn_0e_6_usa where the name contains 'a'.
 """
 import sqlalchemy
-from model_state import Base, State
 from sqlalchemy.orm import sessionmaker
+from model_state import Base, State
 from sys import argv, exit
 
 if __name__ == "__main__":
- 
+    # Check if the correct number of arguments is provided
     if len(argv) != 4:
         print("Usage: ./7.py <username> <password> <database>")
         exit(1)
