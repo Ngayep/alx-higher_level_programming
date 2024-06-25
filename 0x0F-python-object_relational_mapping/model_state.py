@@ -5,13 +5,19 @@
  and an instance Base = declarative_base()
 """
 
-from sqlalchemy import Column, Integer, String, create_engine
+from sqlalchemy import Column, Integer, String, MetaData
 from sqlalchemy.ext.declarative import declarative_base
 
-Base = declarative_base()
+mymetadata = MetaData()
+Base = declarative_base(mymetadata = MetaData)
 
 
 class State(Base):
+    """state class
+    __tablename__ (str): The table name of the class
+        id (int): The State id of the class
+        name (str): The State name of the class
+    """
     __tablename__ = 'states'
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(128))
+    id = Column(Integer, unique=True,  primary_key=True, autoincrement=True, nullable=False)
+    name = Column(String(128), nullable=False)
