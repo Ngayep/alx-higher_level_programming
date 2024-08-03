@@ -1,38 +1,25 @@
 #!/usr/bin/node
 
 const request = require('request');
+const url = process.argv[2];
 
-// Get the API URL from command line arguments
-const apiUrl = process.argv[2];
-
-// Object to store the count of completed tasks for each user ID
-const userTasks = {};
-
-// Fetch data from the API
-request(apiUrl, (error, response, body) => {
-  if (error) {
-    console.error(error);
+request(url, (err, res, body) => {
+  if (err) {
+    console.error(err);
     return;
   }
+  const todos = JSON.parse(body);
+  const completedTasks = {};
 
-  try {
-    const todos = JSON.parse(body);
-
-    // Iterate through each todo item
-    todos.forEach(todo => {
-      if (todo.completed) {
-        if (!userTasks[todo.userId]) {
-          userTasks[todo.userId] = 0;
-        }
-        userTasks[todo.userId]++;
+  todos.forEach(todo => {
+    if (todo.completed) {
+      if (completedTasks[todo.userId]) {
+        completedTasks[todo.userId]++;
+      } else {
+        completedTasks[todo.userId] = 1;
       }
-    });
-
-    // Print the number of completed tasks for each user ID
-    for (const [userId, count] of Object.entries(userTasks)) {
-      console.log(`User ${userId} completed ${count} tasks`);
     }
-  } catch (parseError) {
-    console.error('Error parsing JSON:', parseError);
-  }
+  });
+
+  console.log(completedTasks);
 });
