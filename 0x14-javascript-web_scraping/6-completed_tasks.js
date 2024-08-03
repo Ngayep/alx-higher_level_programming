@@ -32,7 +32,6 @@ request(apiUrl, (error, response, body) => {
     for (const [userId, count] of Object.entries(userTasks)) {
       console.log(`User ${userId} completed ${count} tasks`);
     }
-
   } catch (parseError) {
     console.error('Error parsing JSON:', parseError);
   }
